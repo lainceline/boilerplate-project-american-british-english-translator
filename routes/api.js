@@ -6,7 +6,7 @@ const translate = require('../components/translator.js');
 
 router.post('/translate', (req, res) => {
   const { text, locale } = req.body;
-  if (!text || !locale) {
+  if (text === undefined || locale === undefined) {
     return res.json({ error: 'Required field(s) missing' });
   }
   if (text.trim() === '') {
